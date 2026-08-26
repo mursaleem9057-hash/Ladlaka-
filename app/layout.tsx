@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import ServiceWorkerRegistration from './components/ServiceWorkerRegistration';
 
 export const metadata: Metadata = {
   title: 'LADLAKA - Marketplace & Delivery',
@@ -23,8 +24,12 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ef4444" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="bg-white text-gray-900">
+        {/* Client-side service worker registration and online/offline handling */}
+        <ServiceWorkerRegistration />
+
         <div className="min-h-screen flex flex-col">
           {children}
         </div>
